@@ -1,0 +1,27 @@
+{
+  "name": "gameoflife",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "chai": "^4.2.0",
+    "three": "^0.106.1"
+  },
+  "devDependencies": {
+    "mocha": "^6.1.4",
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/node": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/register": "^7.4.4"
+  },
+  "scripts": {
+    "test": "mocha --require @babel/register",
+    "test-watch": "mocha --require @babel/register --watch"
+  },
+  "author": "",
+  "license": "ISC"
+}
