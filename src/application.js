@@ -33,20 +33,10 @@ export class Application {
    
     update() {
         while(this.scene.children.length > 0){ 
-            // let it = this.scene.children[0];
-            // it.material.dispose();
-            // it.geometry.dispose();
-            // this.scene.remove(it);
             this.scene.remove(this.scene.children[0]);
         }
 
-        let bbox = {
-            left: -100,
-            top: -100,
-            right: 100,
-            bottom: 100
-        };
-        //this.game.bounding;
+        let bbox = {left:-50,top:-50,right:50,bottom:50};
         for(let yi = bbox.top; yi <= bbox.bottom; yi++) {
             for(let xi = bbox.left; xi <= bbox.right; xi++) {
                 let y = yi.toString(), x = xi.toString();
@@ -67,11 +57,8 @@ export class Application {
             this.renderer.render(this.scene, this.camera);
         }
 
-        // setTimeout(() =>
-            this.window.requestAnimationFrame(() => {
-                this.render();
-            })
-        //     ,25
-        // );
+        this.window.requestAnimationFrame(() => {
+            this.render();
+        });
     }
 }
