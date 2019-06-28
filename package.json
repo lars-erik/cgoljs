@@ -7,10 +7,10 @@
     "test": "tests"
   },
   "dependencies": {
-    "chai": "^4.2.0",
     "three": "^0.106.1"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
     "mocha": "^6.1.4",
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
@@ -19,6 +19,7 @@
     "@babel/register": "^7.4.4"
   },
   "scripts": {
+    "start": "parcel src/index.html",
     "test": "mocha --require @babel/register",
     "test-watch": "mocha --require @babel/register --watch"
   },
