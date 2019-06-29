@@ -42,14 +42,6 @@ describe("game", () => {
         expect(output).to.equal(".X.\n.X.\n.X.\n");
     });
 
-    it("builds bounding box", () => {
-        game.awaken(-1, 0);
-        game.awaken(0, 0);
-        game.awaken(1, 0);
-        game.tick();
-        expect(game.bounding).to.contain({left:-1,right:1,top:-1,bottom:1});
-    });
-
     function draw(game, left, top, right, bottom) {
         let output = "";
         for(let y = top; y<=bottom; y++) {

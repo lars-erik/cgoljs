@@ -2,13 +2,15 @@ export class Game {
     
     constructor() {
         this.cells = {};
-        this.bounding = {left:0,top:0,right:0,bottom:0};
     }
 
     awaken(x, y) {
+        if (x instanceof Array) {
+            y = x[1];
+            x = x[0];
+        }
         let row = this.cells[y] || (this.cells[y] = {});
         row[x] = true;
-        this.updateBounding(x, y);
     }
 
     isAlive(x, y) {
@@ -33,22 +35,11 @@ export class Game {
                 let neighbours = this.countNeighbours(x, y);
                 if (neighbours === 3 || (neighbours === 2 && this.isAlive(x, y))) {
                     (newCells[y] || (newCells[y] = {}))[x] = true;
-                    this.updateBounding(x, y);
                 }
             });
         });
 
         this.cells = newCells;
-    }
-
-    updateBounding(x, y) {
-        this.bounding = {
-            left: Math.min(Number(x), this.bounding.left),
-            right: Math.max(Number(x), this.bounding.right),
-
-            top: Math.min(Number(y), this.bounding.top),
-            bottom: Math.max(Number(y), this.bounding.bottom),
-        };
     }
 
     addAllForEval(x, y, evalCells) {
